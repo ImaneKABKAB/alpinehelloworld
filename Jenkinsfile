@@ -3,8 +3,8 @@ pipeline {
   environment {
     IMAGE_NAME= "alpinehelloworld"
     IMAGE_TAG= "latest"
-    STAGING_ENV= "alpine-lab-staging"
-    PRODUCTION_ENV= "alpine-lab-production"
+    STAGING_ENV= "alpine-lab-vm-staging"
+    PRODUCTION_ENV= "alpine-lab-vm-production"
   }
   stages {
     stage('Build image') {
@@ -31,7 +31,7 @@ pipeline {
       steps {
        script {
          sh '''
-             curl http://localhost | grep -q "Hello world!"
+             curl http://172.17.0.1:5000 | grep -q "Hello world!"
          '''
        }
       }
