@@ -7,6 +7,7 @@ pipeline {
     PRODUCTION_ENV= "alpine-lab-vm-production"
     //STAGING_ENV= "alpine-lab-staging"
     //PRODUCTION_ENV= "alpine-lab-production"
+    
   }
   stages {
     stage('Build image') {
